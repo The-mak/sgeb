@@ -1,18 +1,17 @@
-
 Sistema de gerenciamento de documentos(Registro de motoristas, frota, fichas..),
 criado usando ASP.NET MVC 3, C#, HTML/CSS3, responsive-design.
 
-O sistema é dividido em 3 módulos:
+O sistema Ã© dividido em 3 partes:
 
 1 - Motoristas: onde se pode cadastrar/alterar/excluir dados sobre um motorista da empresa,
-    onde estão contidos informações sobre RG, CPF, CNH, Endereço e Contato, incluindo imagens dos respectivos
+    onde estÃ£o contidos informaÃ§Ãµes sobre RG, CPF, CNH, EndereÃ§o e Contato, incluindo imagens dos respectivos
     documentos.
 2 - Veiculos: onde se pode cadastrar/alterar/excluir dados sobre um veiculo especifico,
-    onde estão contidos informações do documento do veiculo e seu proprietário, assim como as imagens dos 
+    onde estÃ£o contidos informaÃ§Ãµes do documento do veiculo e seu proprietÃ¡rio, assim como as imagens dos 
     respectivos documentos.
-3 - Fichas: pode-se criar registros combinando diferentes motoristas-veiculos, com a finalidade de visualização
-    destes dados conjuntos, ou geração de um arquivo PDF(Portable Document Format) que pode ser visualizado no 
-    browser ou ser feito o download do mesmo.Há também a opção de enviar este arquivo diretamente para um e-mail
-    especificado, assim a geração do arquivo se da 'on-fly'
+3 - Fichas: pode-se criar registros combinando diferentes motoristas-veiculos, com a finalidade de visualizaÃ§Ã£o
+    destes dados conjuntos, ou geraÃ§Ã£o de um arquivo PDF(Portable Document Format) que pode ser visualizado no 
+    browser ou ser feito o download do mesmo.HÃ¡ tambÃ©m a opÃ§Ã£o de enviar este arquivo diretamente para um e-mail
+    especificado, assim a geraÃ§Ã£o do arquivo se da 'on-fly'
 
-As configurações podem ser alteradas na página "Configurações", tendo-se controle sobre os dados da empresa.
+As configuraÃ§Ãµes podem ser alteradas na pÃ¡gina "ConfiguraÃ§Ãµes", tendo-se controle sobre os dados da empresa.
