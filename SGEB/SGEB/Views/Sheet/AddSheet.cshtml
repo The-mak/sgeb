@@ -1,0 +1,72 @@
+﻿@model SGEB.Models.AddSheetViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="AddSheet">
+    @using (Html.BeginForm("AddSheet", "Sheet"))
+    {
+        <fieldset>
+            <legend>Adicionar Ficha</legend>
+
+            <p>
+                <span>
+                    <label>Motorista:</label>
+                    <select name="DriverId">
+                        <option value="">Selecione o motorista</option>
+                        @foreach (SGEB.Models.DriverSheetViewModel driver in Model.Drivers)
+                        {
+                            <option value="@driver.Id">@driver.Name</option>
+                        }
+                    </select>
+                </span>
+            </p>
+
+            <p>
+                <span>
+                    <label>Cavalo:</label>
+                    <select name="TruckId">
+                        <option value="">Selecione o caminhão</option>
+                        @foreach (SGEB.Models.VehicleSheetViewModel truck in Model.Trucks)
+                        {
+                            <option value="@truck.Id">@truck.Plate</option>
+                        }
+                    </select>
+                </span>
+            </p>
+
+            <p>
+                <span>
+                    <label>Carreta:</label>
+                    <select name="CartId">
+                        <option value="">Selecione a carreta</option>
+                        @foreach (SGEB.Models.VehicleSheetViewModel cart in Model.Carts)
+                        {
+                            <option value="@cart.Id">@cart.Plate
+                                @if (cart.SecondaryPlate != null)
+                                {
+                                    <text>/ @cart.SecondaryPlate </text>
+                                }
+                            </option>
+                        }
+                    </select>
+                </span>
+            </p>
+
+            <p class="sheetActions">
+                <input type="submit" class="button" value="Adicionar" />
+                <input type="button" class="button" value="Cancelar" onclick="window.location.href='@Url.Action("Sheets", "Sheet")    '" />
+            </p>
+        </fieldset>
+        
+        if (TempData["ErrorMessage"] != null)
+        {
+        <br />
+        <br />
+        <div class="ui-state-error errormessage">
+            @TempData["ErrorMessage"]
+        </div>
+        }
+    }
+</div>

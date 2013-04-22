@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SGEBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="SGEBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Rgs" EntityType="SGEBModel.Rg" />
+    <EntitySet Name="Cpfs" EntityType="SGEBModel.Cpf" />
+    <EntitySet Name="Cnhs" EntityType="SGEBModel.Cnh" />
+    <EntitySet Name="Addresses" EntityType="SGEBModel.Address" />
+    <EntitySet Name="Contacts" EntityType="SGEBModel.Contact" />
+    <EntitySet Name="Drivers" EntityType="SGEBModel.Driver" />
+    <EntitySet Name="Configurations" EntityType="SGEBModel.Configuration" />
+    <AssociationSet Name="DriverRg" Association="SGEBModel.DriverRg">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="Rg" EntitySet="Rgs" />
+    </AssociationSet>
+    <AssociationSet Name="DriverCpf" Association="SGEBModel.DriverCpf">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="Cpf" EntitySet="Cpfs" />
+    </AssociationSet>
+    <AssociationSet Name="DriverCnh" Association="SGEBModel.DriverCnh">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="Cnh" EntitySet="Cnhs" />
+    </AssociationSet>
+    <AssociationSet Name="DriverAddress" Association="SGEBModel.DriverAddress">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="DriverContact" Association="SGEBModel.DriverContact">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="Contact" EntitySet="Contacts" />
+    </AssociationSet>
+    <EntitySet Name="Vehicles" EntityType="SGEBModel.Vehicle" />
+    <AssociationSet Name="VehicleVehicle" Association="SGEBModel.VehicleVehicle">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="Vehicle1" EntitySet="Vehicles" />
+    </AssociationSet>
+    <EntitySet Name="Owners" EntityType="SGEBModel.Owner" />
+    <AssociationSet Name="OwnerAddress" Association="SGEBModel.OwnerAddress">
+      <End Role="Owner" EntitySet="Owners" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="VehicleOwner" Association="SGEBModel.VehicleOwner">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="Owner" EntitySet="Owners" />
+    </AssociationSet>
+    <EntitySet Name="Sheets" EntityType="SGEBModel.Sheet" />
+    <AssociationSet Name="DriverSheet" Association="SGEBModel.DriverSheet">
+      <End Role="Sheet" EntitySet="Sheets" />
+      <End Role="Driver" EntitySet="Drivers" />
+    </AssociationSet>
+    <AssociationSet Name="SheetVehicle" Association="SGEBModel.SheetVehicle">
+      <End Role="Sheet" EntitySet="Sheets" />
+      <End Role="Vehicle" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="SheetCart" Association="SGEBModel.SheetCart">
+      <End Role="Sheet" EntitySet="Sheets" />
+      <End Role="Vehicle" EntitySet="Vehicles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Rg">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Number" Nullable="false" MaxLength="11" />
+    <Property Type="DateTime" Name="BornDate" Nullable="false" />
+    <Property Type="DateTime" Name="EmittedDate" Nullable="false" />
+    <Property Type="String" Name="FathersName" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="MothersName" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="State" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="Image" Nullable="false" MaxLength="Max" />
+  </EntityType>
+  <EntityType Name="Cpf">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Number" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="Image" Nullable="false" MaxLength="Max" />
+  </EntityType>
+  <EntityType Name="Cnh">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Number" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="Category" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="Record" Nullable="false" MaxLength="11" />
+    <Property Type="DateTime" Name="EmittedDate" Nullable="false" />
+    <Property Type="DateTime" Name="DueDate" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="false" MaxLength="Max" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Street" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Number" Nullable="false" />
+    <Property Type="String" Name="Neighborhood" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ZipCode" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="State" Nullable="false" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="HomePhone" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="CelPhone" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="RefPhone1" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="RefPhone2" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="RefContact1" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="RefContact2" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Rg" Relationship="SGEBModel.DriverRg" FromRole="Driver" ToRole="Rg" />
+    <NavigationProperty Name="Cpf" Relationship="SGEBModel.DriverCpf" FromRole="Driver" ToRole="Cpf" />
+    <NavigationProperty Name="Cnh" Relationship="SGEBModel.DriverCnh" FromRole="Driver" ToRole="Cnh" />
+    <NavigationProperty Name="Address" Relationship="SGEBModel.DriverAddress" FromRole="Driver" ToRole="Address" />
+    <NavigationProperty Name="Contact" Relationship="SGEBModel.DriverContact" FromRole="Driver" ToRole="Contact" />
+  </EntityType>
+  <EntityType Name="Configuration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="DocNumber" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StateRegistration" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Telephone" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="CelPhone" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="RadioPhone" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="DriverRg">
+    <End Type="SGEBModel.Driver" Role="Driver" Multiplicity="1" />
+    <End Type="SGEBModel.Rg" Role="Rg" Multiplicity="1" />
+  </Association>
+  <Association Name="DriverCpf">
+    <End Type="SGEBModel.Driver" Role="Driver" Multiplicity="1" />
+    <End Type="SGEBModel.Cpf" Role="Cpf" Multiplicity="1" />
+  </Association>
+  <Association Name="DriverCnh">
+    <End Type="SGEBModel.Driver" Role="Driver" Multiplicity="1" />
+    <End Type="SGEBModel.Cnh" Role="Cnh" Multiplicity="1" />
+  </Association>
+  <Association Name="DriverAddress">
+    <End Type="SGEBModel.Driver" Role="Driver" Multiplicity="0..1" />
+    <End Type="SGEBModel.Address" Role="Address" Multiplicity="1" />
+  </Association>
+  <Association Name="DriverContact">
+    <End Type="SGEBModel.Driver" Role="Driver" Multiplicity="1" />
+    <End Type="SGEBModel.Contact" Role="Contact" Multiplicity="1" />
+  </Association>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Plate" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="Model" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Chassi" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Renavam" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="Color" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="State" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="ANTT" Nullable="false" MaxLength="20" />
+    <NavigationProperty Name="SecondaryVehicle" Relationship="SGEBModel.VehicleVehicle" FromRole="Vehicle" ToRole="Vehicle1" />
+    <NavigationProperty Name="Owner" Relationship="SGEBModel.VehicleOwner" FromRole="Vehicle" ToRole="Owner" />
+    <Property Type="String" Name="Image" Nullable="false" MaxLength="Max" />
+  </EntityType>
+  <Association Name="VehicleVehicle">
+    <End Type="SGEBModel.Vehicle" Role="Vehicle" Multiplicity="0..1" />
+    <End Type="SGEBModel.Vehicle" Role="Vehicle1" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Owner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DocNumber" Nullable="false" MaxLength="20" />
+    <NavigationProperty Name="Address" Relationship="SGEBModel.OwnerAddress" FromRole="Owner" ToRole="Address" />
+    <Property Type="String" Name="Phone" Nullable="false" MaxLength="11" />
+  </EntityType>
+  <Association Name="OwnerAddress">
+    <End Type="SGEBModel.Owner" Role="Owner" Multiplicity="0..1" />
+    <End Type="SGEBModel.Address" Role="Address" Multiplicity="1" />
+  </Association>
+  <Association Name="VehicleOwner">
+    <End Type="SGEBModel.Vehicle" Role="Vehicle" Multiplicity="1" />
+    <End Type="SGEBModel.Owner" Role="Owner" Multiplicity="1" />
+  </Association>
+  <EntityType Name="Sheet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Driver" Relationship="SGEBModel.DriverSheet" FromRole="Sheet" ToRole="Driver" />
+    <NavigationProperty Name="Truck" Relationship="SGEBModel.SheetVehicle" FromRole="Sheet" ToRole="Vehicle" />
+    <NavigationProperty Name="Cart" Relationship="SGEBModel.SheetCart" FromRole="Sheet" ToRole="Vehicle" />
+  </EntityType>
+  <Association Name="DriverSheet">
+    <End Type="SGEBModel.Sheet" Role="Sheet" Multiplicity="*" />
+    <End Type="SGEBModel.Driver" Role="Driver" Multiplicity="1" />
+  </Association>
+  <Association Name="SheetVehicle">
+    <End Type="SGEBModel.Sheet" Role="Sheet" Multiplicity="*" />
+    <End Type="SGEBModel.Vehicle" Role="Vehicle" Multiplicity="1" />
+  </Association>
+  <Association Name="SheetCart">
+    <End Type="SGEBModel.Sheet" Role="Sheet" Multiplicity="*" />
+    <End Type="SGEBModel.Vehicle" Role="Vehicle" Multiplicity="1" />
+  </Association>
+</Schema>

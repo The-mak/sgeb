@@ -1,0 +1,62 @@
+﻿@model SGEB.Model.Configuration
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="configurations">
+    @using (Html.BeginForm("Configurations", "Configuration", FormMethod.Post))
+    {
+        <fieldset>
+            <legend>Configurações</legend>
+
+            <p>
+                <label>Nome da empresa</label>
+                <input type="text" name="Name" value="@Model.Name" id="enterpriseName" required maxlength="70"/>
+            </p>
+
+            <p>
+                <label>CNPJ</label>
+                <input type="text" name="DocNumber" value="@Model.DocNumber" id="enterpriseDoc" required maxlength="20" />
+            </p>
+
+            <p>
+                <label>Inscrição Estadual</label>
+                <input type="text" name="StateRegistration" value="@Model.StateRegistration" required maxlength="20" />
+            </p>
+
+            <p>
+                <label>Telefone</label>
+                <input type="text" name="Telephone" value="@Model.Telephone" required maxlength="11" />
+            </p>
+
+            <p>
+                <label>Celular</label>
+                <input type="text" name="CelPhone" value="@Model.CelPhone" required maxlength="11"  />
+            </p>
+
+            <p>
+                <label>Nextel</label>
+                <input type="text" name="RadioPhone" value="@Model.RadioPhone" required maxlength="11" />
+            </p>
+
+            <p>
+                <label>E-mail</label>
+                <input type="email" name="Email" value="@Model.Email" required maxlength="50"  />
+            </p>
+
+            <br />
+
+            <p class="configActions">
+                <input type="submit" value="Salvar" class="button" />
+                <input type="button" value="Cancelar" class="button" onclick="window.location.href='@Url.Action("Index", "Home")'" />
+            </p>
+        </fieldset>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="ui-state-error errormessage">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+</div>

@@ -1,0 +1,216 @@
+﻿@model SGEB.Model.Vehicle
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="ViewVehicle" @((!Model.Type.Equals("Bi-Trem"))? "class=ViewSingleVehicle" : "class=ViewDoubleVehicle" )>
+    <div class="Vehicle">
+        <fieldset>
+            <legend>Veiculo</legend>
+
+            <p>
+                <span><label>Tipo:</label> @Model.Type</span>
+            </p>       
+            
+            <p>
+                <span><label>Placa:</label> @Model.Plate</span>
+            </p>     
+
+            <p>
+                <span><label>Modelo:</label> @Model.Model</span>
+            </p>
+
+            <p>
+                <span><label>Chassi:</label> @Model.Chassi</span>
+            </p>
+
+            <p>
+                <span><label>Renavam:</label> @Model.Renavam</span>
+            </p>
+
+            <p>
+                <span><label>Cor:</label> @Model.Color</span>
+            </p>
+
+            <p>
+                <span><label>Ano:</label> @Model.Year</span>
+            </p>
+
+            <p>
+                <span><label>Cidade:</label> @Model.City</span>
+            </p>
+
+            <p>
+                <span><label>Estado:</label> @Model.State</span>
+            </p>
+
+            <p>
+                <span><label>ANTT:</label> @Model.ANTT</span>
+            </p>
+
+            <p>
+                <span>
+                    <label>Imagem:</label>
+
+                    @if (String.IsNullOrWhiteSpace(Model.Image))
+                    {
+                        <text>Imagem não disponivel</text>
+                    }
+                    else
+                    {
+                        <a href="@Model.Image" target="_blank">Ver imagem</a>
+                    }
+                </span>
+            </p>
+        </fieldset>
+    </div>
+
+    <div class="Owner">
+        <fieldset>
+            <legend>Proprietário</legend>
+
+            <p>
+                <span><label>Razão Social:</label> @Model.Owner.Name</span>
+            </p>
+
+            <p>
+                <span><label>CPF/CNPJ:</label> @Model.Owner.DocNumber</span>
+            </p>
+
+            <p>
+                <span><label>Telefone:</label> @Model.Owner.Phone</span>
+            </p>
+
+            <p>
+                <span><label>Rua:</label> @Model.Owner.Address.Street</span>
+            </p>
+
+            <p>
+                <span><label>Número:</label> @Model.Owner.Address.Number</span>
+            </p>
+
+            <p>
+                <span><label>Bairro:</label> @Model.Owner.Address.Neighborhood</span>
+            </p>
+
+            <p>
+                <span><label>CEP:</label> @Model.Owner.Address.ZipCode</span>
+            </p>
+
+            <p>
+                <span><label>Cidade:</label> @Model.Owner.Address.City</span>
+            </p>
+
+            <p>
+                <span><label>Estado:</label> @Model.Owner.Address.State</span>
+            </p>
+        </fieldset>
+    </div>
+
+    @if (Model.Type.Equals("Bi-Trem"))
+    {
+        <div class="Vehicle">
+            <fieldset>
+                <legend>Veiculo</legend>
+
+                <p>
+                    <span><label>Tipo:</label> @((@Model.SecondaryVehicle.Type.Equals("Secondary"))? "Bi-Trem" : Model.SecondaryVehicle.Type)</span>
+                </p>
+
+                <p>
+                    <span><label>Placa:</label> @Model.SecondaryVehicle.Plate</span>
+                </p>
+
+                <p>
+                    <span><label>Modelo:</label> @Model.SecondaryVehicle.Model</span>
+                </p>
+
+                <p>
+                    <span><label>Chassi:</label> @Model.SecondaryVehicle.Chassi</span>
+                </p>
+
+                <p>
+                    <span><label>Renavam:</label> @Model.SecondaryVehicle.Renavam</span>
+                </p>
+
+                <p>
+                    <span><label>Cor:</label> @Model.SecondaryVehicle.Color</span>
+                </p>
+
+                <p>
+                    <span><label>Ano:</label> @Model.SecondaryVehicle.Year</span>
+                </p>
+
+                <p>
+                    <span><label>Cidade:</label> @Model.SecondaryVehicle.City</span>
+                </p>
+
+                <p>
+                    <span><label>Estado:</label> @Model.SecondaryVehicle.State</span>
+                </p>
+
+                <p>
+                    <span><label>ANTT:</label> @Model.SecondaryVehicle.ANTT</span>
+                </p>
+
+                <p>
+                    <span>
+                        <label>Imagem:</label>
+
+                        @if (String.IsNullOrWhiteSpace(Model.SecondaryVehicle.Image))
+                        {
+                            <text>Imagem não disponivel</text>
+                        }
+                        else
+                        {
+                            <a href="@Model.SecondaryVehicle.Image" target="_blank">Ver Imagem</a>   
+                        }
+                    </span>
+                </p>
+            </fieldset>
+        </div>
+        
+        <div class="Owner">
+            <fieldset>
+                <legend>Proprietário</legend>
+
+                <p>
+                    <span><label>Razão Social:</label> @Model.SecondaryVehicle.Owner.Name</span>
+                </p>
+
+                <p>
+                    <span><label>CPF/CNPJ:</label> @Model.SecondaryVehicle.Owner.DocNumber</span>
+                </p>
+
+                <p>
+                    <span><label>Telefone:</label> @Model.SecondaryVehicle.Owner.Phone</span>
+                </p>
+
+                <p>
+                    <span><label>Rua:</label> @Model.SecondaryVehicle.Owner.Address.Street</span>
+                </p>
+
+                <p>
+                    <span><label>Número:</label> @Model.SecondaryVehicle.Owner.Address.Number</span>
+                </p>
+
+                <p>
+                    <span><label>Bairro:</label> @Model.SecondaryVehicle.Owner.Address.Neighborhood</span>
+                </p>
+
+                <p>
+                    <span><label>CEP:</label> @Model.SecondaryVehicle.Owner.Address.ZipCode</span>
+                </p>
+
+                <p>
+                    <span><label>Cidade:</label> @Model.SecondaryVehicle.Owner.Address.City</span>
+                </p>
+
+                <p>
+                    <span><label>Estado:</label> @Model.SecondaryVehicle.Owner.Address.State</span>
+                </p>
+            </fieldset>
+        </div>
+    }
+</div>

@@ -1,0 +1,11 @@
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB\bin\SGEB.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB\bin\SGEB.pdb
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB\bin\EntityFramework.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB\bin\ImageResizer.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB\bin\SGEB.Model.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB\bin\SGEB.Model.pdb
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB\bin\EntityFramework.xml
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB\bin\ImageResizer.xml
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB\obj\Debug\SGEB.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB\obj\Debug\SGEB.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB\obj\Debug\SGEB.pdb

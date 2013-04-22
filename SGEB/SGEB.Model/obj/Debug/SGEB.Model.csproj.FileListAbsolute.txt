@@ -1,0 +1,6 @@
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB.Model\bin\Debug\SGEB.Model.dll.config
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB.Model\bin\Debug\SGEB.Model.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB.Model\bin\Debug\SGEB.Model.pdb
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB.Model\obj\Debug\SGEB.Model.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB.Model\obj\Debug\SGEB.Model.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\SGEB.Model\obj\Debug\SGEB.Model.pdb

@@ -1,0 +1,98 @@
+﻿@model IEnumerable<SGEB.Models.SheetViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="ui-state-error errormessage">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<div id="sheets">
+    <input type="button" class="button" value="Adicionar" onclick="window.location.href='@Url.Action("AddSheet", "Sheet")'" />
+
+    <table>
+        <thead>
+            <tr>
+                <th>Motorista</th>
+                <th>Cavalo</th>
+                <th>Carreta</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (SGEB.Models.SheetViewModel sheet in Model)
+            {
+                <tr>
+                    <td><a href="@Url.Action("Driver", "Driver", new { Id = @sheet.Driver.Id })">@sheet.Driver.Name</a></td>
+                    <td><a href="@Url.Action("Vehicle", "Vehicle", new { Id = @sheet.Truck.Id })">@sheet.Truck.Plate</a></td>
+                    <td>
+                        <a href="@Url.Action("Vehicle", "Vehicle", new { id = @sheet.Cart.Id })">
+                            @sheet.Cart.Plate 
+                            
+                            @if (sheet.Cart.SecondaryPlate != null)
+                            {
+                                <text>/ @sheet.Cart.SecondaryPlate </text>
+                            }
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("ViewPdf", new { Id = sheet.Id })" target="_blank" title="Visualizar ficha" >
+                            <img src="@Url.Content("~/Content/Images/pdf.png")" alt="Visualizar ficha" />
+                        </a>
+                        <a href="@Url.Action("SendRecord", new { Id = sheet.Id })" title="Enviar ficha por email">
+                            <img src="@Url.Content("~/Content/Images/email.png")" alt="Enviar ficha por email email"/>
+                        </a>
+                        <a href="@Url.Action("Delete", "Sheet", new { Id = @sheet.Id })" title="Deletar ficha" class="confirmLink">
+                            <img src="@Url.Content("~/Content/Images/delete.png")" alt="Deletar ficha" />
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td></td>
+                <td>Número de fichas cadastradas: @Model.Count()</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<!-- Script Delete Confirm -->
+<div id="dialog" title="Confirmar exclusão">
+    Tem certeza que deseja continuar?
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#dialog").dialog({
+            modal: true,
+            autoOpen: false,
+            width: 500
+        });
+
+        $(".confirmLink").click(function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#dialog").dialog('option', 'buttons', {
+                "Excluir" : function() {
+                    window.location.href = theHREF;
+                },
+                "Cancelar" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#dialog").dialog("open");
+        });
+    });
+</script>

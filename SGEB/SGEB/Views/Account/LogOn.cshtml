@@ -1,0 +1,44 @@
+﻿@model SGEB.Models.LoginModelView
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if(!Request.Browser.IsMobileDevice)
+{
+    <p id="b3Logo">
+        <img src="../../Content/Images/B3Logo.png" alt="BIII Transportes" />
+    </p>
+}
+<div id="login">
+    @using (Html.BeginForm("LogOn", "Account", FormMethod.Post))
+    {
+        <h3>Login</h3>
+        
+        <p>
+            <input type="text" name="Username" class="usernameInput" required placeholder="Nome do usuário" />
+        </p>
+        
+        <p>
+            <input type="password" name="Password" class="passwordInput" required placeholder="Senha" />
+        </p>
+
+        <p>
+            <label>
+            @Html.CheckBoxFor(m => m.KeepLogged) Mantenha-me logado
+            </label>
+        </p>
+        
+        <p>
+            <input type="submit" value="Entrar" class="loginButton button"/>
+        </p>
+        
+        if(!Html.ViewData.ModelState.IsValid)
+        {
+            <br /> <br />            
+            <div class="ui-state-error">
+                @Html.ValidationSummary()
+            </div>
+        }
+    }
+</div>

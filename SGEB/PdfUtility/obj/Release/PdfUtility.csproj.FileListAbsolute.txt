@@ -1,0 +1,17 @@
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\PdfUtility\bin\Release\PdfUtility.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\PdfUtility\bin\Release\PdfUtility.pdb
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\PdfUtility\bin\Release\itextsharp.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\PdfUtility\bin\Release\itextsharp.pdfa.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\PdfUtility\bin\Release\itextsharp.xtra.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\PdfUtility\bin\Release\SGEB.Model.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\PdfUtility\bin\Release\SGEB.Model.pdb
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\PdfUtility\obj\Release\PdfUtility.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\PdfUtility\obj\Release\PdfUtility.dll
+C:\Users\admin\Desktop\Projetos\Projetos em Andamento\SGEB\PdfUtility\obj\Release\PdfUtility.pdb
+C:\Users\themak\Desktop\Projetos\SGEB\SGEB9\SGEB\PdfUtility\bin\Release\PdfUtility.dll
+C:\Users\themak\Desktop\Projetos\SGEB\SGEB9\SGEB\PdfUtility\bin\Release\PdfUtility.pdb
+C:\Users\themak\Desktop\Projetos\SGEB\SGEB9\SGEB\PdfUtility\bin\Release\SGEB.Model.dll
+C:\Users\themak\Desktop\Projetos\SGEB\SGEB9\SGEB\PdfUtility\bin\Release\SGEB.Model.pdb
+C:\Users\themak\Desktop\Projetos\SGEB\SGEB9\SGEB\PdfUtility\obj\Release\PdfUtility.csprojResolveAssemblyReference.cache
+C:\Users\themak\Desktop\Projetos\SGEB\SGEB9\SGEB\PdfUtility\obj\Release\PdfUtility.dll
+C:\Users\themak\Desktop\Projetos\SGEB\SGEB9\SGEB\PdfUtility\obj\Release\PdfUtility.pdb

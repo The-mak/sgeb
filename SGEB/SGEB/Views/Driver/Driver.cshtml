@@ -1,0 +1,176 @@
+﻿@model SGEB.Model.Driver
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="ViewDriver">
+
+    <div id="ViewDriverRg">
+        <fieldset>
+            <legend>RG</legend>
+
+            <p>
+                <span><label>Nome:</label> @Model.Rg.Name</span>
+            </p>
+
+            <p>
+                <span><label>Número:</label> @Model.Rg.Number</span>
+            </p>
+
+            <p>
+                <span><label>Data de nascimento:</label> @Model.Rg.BornDate.ToShortDateString()</span>
+            </p>
+
+            <p>
+                <span><label>Data de emissão:</label> @Model.Rg.EmittedDate.ToShortDateString()</span>
+            </p>
+
+            <p>
+                <span><label>Nome do pai:</label> @Model.Rg.FathersName</span>
+            </p>
+    
+            <p>
+                <span><label>Nome da mãe:</label> @Model.Rg.MothersName</span>
+            </p>
+
+            <p>
+                <span><label>Cidade:</label> @Model.Rg.City</span>
+            </p>
+
+            <p>
+                <span><label>Estado:</label> @Model.Rg.State</span>
+            </p>
+
+            <p>
+                <span>
+                    <label>Imagem:</label>
+
+                    @if (String.IsNullOrWhiteSpace(Model.Rg.Image))
+                    {
+                        <text>Imagem não disponivel.</text>
+                    }
+                    else
+                    {
+                        <a href="@Model.Rg.Image" target="_blank">Ver imagem</a>
+                    }
+                </span>
+            </p>
+        </fieldset>
+    </div>
+
+    <div id="ViewDriverCpf">
+        <fieldset>
+            <legend>CPF</legend>
+
+            <p>
+                <span><label>Número:</label> @Model.Cpf.Number</span>
+            </p>
+
+            <p>
+                <span><label>Imagem:</label>
+
+                @if (String.IsNullOrWhiteSpace(Model.Cpf.Image))
+                {
+                    <text>Imagem não disponivel.</text>
+                }
+                else
+                {
+                    <a href="@Model.Cpf.Image" target="_blank">Ver imagem</a>
+                }
+                </span>
+            </p>
+        </fieldset>
+    </div>
+
+    <div id="ViewDriverCnh">
+        <fieldset>
+            <legend>CNH</legend>
+            <p>
+                <span><label>Número:</label> @Model.Cnh.Number</span>
+            </p>
+
+            <p>
+                <span><label>Categoria:</label> @Model.Cnh.Category</span>
+            </p>
+
+            <p>
+                <span><label>Prontuário:</label> @Model.Cnh.Record</span>
+            </p>
+
+            <p>
+                <span><label>Data de emissão:</label> @Model.Cnh.EmittedDate.ToShortDateString()</span>
+            </p>
+
+            <p>
+                <span><label>Data de vencimento:</label> @Model.Cnh.DueDate.ToShortDateString()</span>
+            </p>
+
+            <p>
+                <span><label>Imagem: </label> 
+
+                @if (String.IsNullOrWhiteSpace(Model.Cnh.Image))
+                {
+                    <text>Imagem não disponivel.</text>
+                }
+                else
+                {
+                    <a href="@Model.Cnh.Image" target="_blank">Ver imagem</a>
+                }
+                </span>
+            </p>
+        </fieldset>
+    </div>
+
+    <div id="ViewDriverAddress">
+        <fieldset>
+            <legend>Endereço</legend>
+
+            <p>
+                <span><label>Rua:</label> @Model.Address.Street</span>
+            </p>
+
+            <p>
+                <span><label>Número:</label> @Model.Address.Number</span>
+            </p>
+
+            <p>
+                <span><label>Bairro:</label> @Model.Address.Neighborhood</span>
+            </p>
+
+            <p>
+                <span><label>CEP:</label> @Model.Address.ZipCode</span>
+            </p>
+
+            <p>
+                <span><label>Cidade:</label> @Model.Address.City</span>
+            </p>
+
+            <p>
+                <span><label>Estado:</label> @Model.Address.State</span>
+            </p>
+        </fieldset>
+    </div>
+
+    <div id="ViewDriverContact">
+        <fieldset>
+            <legend>Contato</legend>
+
+            <p>
+                <span><label>Telefone residencial:</label> @Model.Contact.HomePhone</span>
+            </p>
+
+            <p>
+                <span><label>Telefone celular:</label> @Model.Contact.CelPhone</span>
+            </p>
+
+            <p>
+                <span><label>Telefone de Contato:</label> @Model.Contact.RefPhone1 (@Model.Contact.RefContact1)</span>
+            </p>
+
+            <p>
+                <span><label>Telefone de Contato</label> @Model.Contact.RefPhone2 (@Model.Contact.RefContact2)</span>
+            </p>
+        </fieldset>
+    </div>
+</div>

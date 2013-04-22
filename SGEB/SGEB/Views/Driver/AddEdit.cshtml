@@ -1,0 +1,233 @@
+﻿@model SGEB.Model.Driver
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="ui-state-error errormessage">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<div class="AddEdit">
+    @using (Html.BeginForm("Save", "Driver", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <fieldset>
+            <legend>@((Model.Id == 0)? "Adicionar Motorista" : "Editar Motorista")</legend>
+
+            <p>
+                <input type="hidden" name="Id" value="@Model.Id" />
+            </p>
+
+            <div id="Rg">
+                <h4>Informações do RG</h4>
+                <hr />
+
+                <p>
+                    <input type="hidden" name="Rg.Id" value="@Model.Rg.Id" />
+                </p>
+                
+                <p>
+                    <span><label for="Rg.Name">Nome:</label><input type="text" name="Rg.Name" value="@Model.Rg.Name" required maxlength="50" /><text>Ex: André da Silva</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Rg.Number">Número</label><input type="text" name="Rg.Number" value="@Model.Rg.Number" required maxlength="11" /><text>Sómente números. Ex: 000000000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Rg.BornDate">Data de nascimento</label> <input type="date" name="Rg.BornDate" value="@String.Format("{0:yyyy-MM-dd}", @Model.Rg.BornDate)" required /><text>Ex: 01/01/1990</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Rg.EmittedDate">Data de emissão</label> <input type="date" name="Rg.EmittedDate" value="@String.Format("{0:yyyy-MM-dd}", @Model.Rg.EmittedDate)" required /><text>Ex: 01/01/1990</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Rg.FathersName">Nome do pai</label> <input type="text" name="Rg.FathersName" value="@Model.Rg.FathersName" required maxlength="40" /><text>Ex: José da Silva</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Rg.MothersName">Nome da mãe</label> <input type="text" name="Rg.MothersName" value="@Model.Rg.MothersName" required maxlength="40" /><text>Ex: Maria da Silva</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Rg.City">Cidade</label> <input type="text" name="Rg.City" value="@Model.Rg.City" required maxlength="30" /><text>Ex: São Paulo</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Rg.State">Estado</label> <input type="text" name="Rg.State" value="@Model.Rg.State" required maxlength="2" /><text>Ex: SP</text></span>
+                </p>
+
+                <p>
+                    @if (String.IsNullOrWhiteSpace(Model.Rg.Image))
+                    {
+                        <input type="hidden" name="Rg.Image" value=" " />
+                    }
+                    else
+                    {
+                        <input type="hidden" name="Rg.Image" value=@Model.Rg.Image />
+                    }
+                    <span><label for="Images">Imagem</label> <input type="file" name="Images" accept="image/jpeg" />
+
+                    @if (!String.IsNullOrWhiteSpace(Model.Rg.Image))
+                    {
+                        <a href="@Model.Rg.Image" target="_blank">Imagem atual</a>
+                    }
+                    </span>
+                </p>    
+            </div>
+            
+            <div id="Cpf">
+                <h4>Informações do CPF</h4> 
+                <hr />
+
+                <p>
+                    <input type="hidden" name="Cpf.Id" value="@Model.Cpf.Id" />
+                </p>
+
+                <p>
+                    <span><label for="Cpf.Number">Número</label> <input type="text" name="Cpf.Number" value="@Model.Cpf.Number" required maxlength="11" /><text>Sómente números. Ex: 000000000</text></span>
+                </p>
+
+                <p>
+                    @if (String.IsNullOrWhiteSpace(Model.Cpf.Image))
+                    {
+                        <input type="hidden" name="Cpf.Image" value=" " />
+                    }
+                    else
+                    {
+                        <input type="hidden" name="Cpf.Image" value=@Model.Cpf.Image />
+                    }
+                    <span><label for="Images">Imagem</label> <input type="file" name="Images" accept="image/jpeg" /> 
+                    
+                    @if (!String.IsNullOrWhiteSpace(Model.Cpf.Image))
+                    {
+                        <a href="@Model.Cpf.Image" target="_blank">Imagem atual</a>
+                    }
+                    </span>
+                </p>
+            </div>
+          
+            <div id="Cnh">
+                <h4>Informações da CNH</h4>
+                <hr />
+
+                <p>
+                    <input type="hidden" name="Cnh.Id" value="@Model.Cnh.Id" />
+                </p>
+
+                <p>
+                    <span><label for="Cnh.Number">Número</label> <input type="text" name="Cnh.Number" value="@Model.Cnh.Number" required maxlength="11" /><text>Sómente números. Ex: 000000000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Cnh.Category">Categoria</label> <input type="text" name="Cnh.Category" value="@Model.Cnh.Category" required maxlength="2" /><text>Ex: AE</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Cnh.Record">Prontuário</label> <input type="text" name="Cnh.Record" value="@Model.Cnh.Record" required maxlength="11" /><text>Sómente números. Ex: 000000000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Cnh.EmittedDate">Data de emissão</label> <input type="date" name="Cnh.EmittedDate" value="@String.Format("{0:yyyy-MM-dd}", Model.Cnh.EmittedDate)" required /><text>Ex: 01/01/1990</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Cnh.DueDate">Data de vencimento</label> <input type="date" name="Cnh.DueDate" value="@String.Format("{0:yyyy-MM-dd}", Model.Cnh.DueDate)" required /><text>Ex: 01/01/1990</text></span>
+                </p>
+
+                <p>
+                    @if (String.IsNullOrWhiteSpace(Model.Cnh.Image))
+                    {
+                        <input type="hidden" name="Cnh.Image" value=" " />
+                    }
+                    else
+                    {
+                        <input type="hidden" name="Cnh.Image" value=@Model.Cnh.Image />
+                    }
+                    <span><label for="Images">Imagem</label> <input type="file" name="Images" accept="image/jpeg" />
+                    
+                    @if (!String.IsNullOrWhiteSpace(Model.Cnh.Image))
+                    {
+                        <a href="@Model.Cnh.Image" target="_blank">Imagem atual</a>
+                    }
+                    </span>
+                </p>
+            </div>
+            
+            <div id="Address">
+                <h4>Informações de Endereço</h4>
+                <hr />
+
+                <p>
+                    <input type="hidden" name="Address.Id" value="@Model.Address.Id" />
+                </p>
+
+                <p>
+                    <span><label for="Address.Street">Rua/Avenida</label> <input type="text" name="Address.Street" value="@Model.Address.Street" required maxlength="50" /><text>Ex: Avenida São Paulo</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Address.Number">Número</label> <input type="text" name="Address.Number" value="@Model.Address.Number" required maxlength="4" /><text>Ex: 0000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Address.Neighborhood">Bairro</label> <input type="text" name="Address.Neighborhood" value="@Model.Address.Neighborhood" required maxlength="50" /><text>Ex: Vila Maria</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Address.ZipCode">CEP</label> <input type="text" name="Address.ZipCode" value="@Model.Address.ZipCode" required maxlength="8" /><text>Sómente números. Ex: 00000000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Address.City">Cidade</label> <input type="text" name="Address.City" value="@Model.Address.City" required maxlength="30" /><text>Ex: São Paulo</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Address.State">Estado</label> <input type="text" name="Address.State" value="@Model.Address.State" required maxlength="2" /><text>Ex: SP</text></span>
+                </p>
+            </div>
+
+            <div id="Contact">
+                <h4>Informações de Contato</h4>
+                <hr />
+
+                <p>
+                    <input type="hidden" name="Contact.Id" value="@Model.Contact.Id" />
+                </p>
+
+                <p>
+                    <span><label for="Contact.HomePhone">Telefone Residencial</label> <input type="text" name="Contact.HomePhone" value="@Model.Contact.HomePhone" required maxlength="11" /><text>Sómente números. Ex: 00000000000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Contact.CelPhone">Telefone Celular</label> <input type="text" name="Contact.CelPhone" value="@Model.Contact.CelPhone" required maxlength="11" /><text>Sómente números. Ex: 00000000000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Contact.RefPhone1">Telefone Referencial 1</label> <input type="text" name="Contact.RefPhone1" value="@Model.Contact.RefPhone1" required maxlength="11" /><text>Sómente números. Ex: 00000000000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Contact.RefContact1">Contato Referencial 1</label> <input type="text" name="Contact.RefContact1" value="@Model.Contact.RefContact1" required maxlength="25" /><text>Ex: Maria</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Contact.RefPhone2">Telefone Referencial 2</label> <input type="text" name="Contact.RefPhone2" value="@Model.Contact.RefPhone2" required maxlength="11" /><text>Sómente números. Ex: 00000000000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Contact.RefContact2">Contato Referencial 2</label> <input type="text" name="Contact.RefContact2" value="@Model.Contact.RefContact2" required maxlength="25"/><text>Ex: Maria</text></span>
+                </p>
+            </div>
+
+            <div class="actions">
+                <input type="submit" value="Salvar" class="button"/> 
+                <input type="button" value="Cancelar" class="button" onclick="window.location.href='@Url.Action("Drivers")'" />
+            </div>
+        </fieldset>
+    }
+</div>

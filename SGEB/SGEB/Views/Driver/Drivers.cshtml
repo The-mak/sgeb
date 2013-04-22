@@ -1,0 +1,83 @@
+﻿@model IEnumerable<SGEB.Models.DriverViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="ui-state-error errormessage">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<div id="drivers">
+    <input type="button" class="button" value="Adicionar" onclick="window.location.href='@Url.Action("Add", "Driver")'" />    
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome do motorista</th>
+                <th>Celular</th>
+                <th></th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            @foreach (SGEB.Models.DriverViewModel driver in Model)
+            {
+                <tr>
+                    <td><a href="@Url.Action("Driver", new { Id = driver.Id })">@driver.Name</a></td>
+                    <td>@driver.Celphone</td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { Id = driver.Id })" title="Editar motorista">
+                            <img src="@Url.Content("~/Content/Images/edit.png")" alt="Editar motorista"/>
+                        </a>
+                        <a href="@Url.Action("Delete", new { Id = driver.Id })" title="Deletar motorista" class="confirmLink">
+                            <img src="@Url.Content("/Content/Images/delete.png")" alt="Deletar motorista"/>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td>Número de motoristas cadastrados: @Model.Count()</td>
+                <td></td>
+                <td></td>
+            </tr>   
+        </tfoot>
+    </table>
+</div>
+
+<!-- Script Delete Confirm -->
+<div id="dialog" title="Confirmar exclusão">
+    Tem certeza que deseja continuar?
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#dialog").dialog({
+            modal: true,
+            autoOpen: false,
+            width: 500
+        });
+
+        $(".confirmLink").click(function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#dialog").dialog('option', 'buttons', {
+                "Excluir" : function() {
+                    window.location.href = theHREF;
+                },
+                "Cancelar" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#dialog").dialog("open");
+        });
+    });
+</script>

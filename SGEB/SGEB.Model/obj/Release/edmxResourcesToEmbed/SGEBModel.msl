@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SGEBModelStoreContainer" CdmEntityContainer="SGEBEntities">
+    <EntitySetMapping Name="Rgs">
+      <EntityTypeMapping TypeName="IsTypeOf(SGEBModel.Rg)">
+        <MappingFragment StoreEntitySet="Rgs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="BornDate" ColumnName="BornDate" />
+          <ScalarProperty Name="EmittedDate" ColumnName="EmittedDate" />
+          <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+          <ScalarProperty Name="MothersName" ColumnName="MothersName" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cpfs">
+      <EntityTypeMapping TypeName="IsTypeOf(SGEBModel.Cpf)">
+        <MappingFragment StoreEntitySet="Cpfs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cnhs">
+      <EntityTypeMapping TypeName="IsTypeOf(SGEBModel.Cnh)">
+        <MappingFragment StoreEntitySet="Cnhs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Record" ColumnName="Record" />
+          <ScalarProperty Name="EmittedDate" ColumnName="EmittedDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="IsTypeOf(SGEBModel.Address)">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Neighborhood" ColumnName="Neighborhood" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="IsTypeOf(SGEBModel.Contact)">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="CelPhone" ColumnName="CelPhone" />
+          <ScalarProperty Name="RefPhone1" ColumnName="RefPhone1" />
+          <ScalarProperty Name="RefPhone2" ColumnName="RefPhone2" />
+          <ScalarProperty Name="RefContact1" ColumnName="RefContact1" />
+          <ScalarProperty Name="RefContact2" ColumnName="RefContact2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="IsTypeOf(SGEBModel.Driver)">
+        <MappingFragment StoreEntitySet="Drivers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configurations">
+      <EntityTypeMapping TypeName="IsTypeOf(SGEBModel.Configuration)">
+        <MappingFragment StoreEntitySet="Configurations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DocNumber" ColumnName="DocNumber" />
+          <ScalarProperty Name="StateRegistration" ColumnName="StateRegistration" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="CelPhone" ColumnName="CelPhone" />
+          <ScalarProperty Name="RadioPhone" ColumnName="RadioPhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="IsTypeOf(SGEBModel.Vehicle)">
+        <MappingFragment StoreEntitySet="Vehicles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Plate" ColumnName="Plate" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Chassi" ColumnName="Chassi" />
+          <ScalarProperty Name="Renavam" ColumnName="Renavam" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ANTT" ColumnName="ANTT" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Owners">
+      <EntityTypeMapping TypeName="IsTypeOf(SGEBModel.Owner)">
+        <MappingFragment StoreEntitySet="Owners">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DocNumber" ColumnName="DocNumber" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sheets">
+      <EntityTypeMapping TypeName="IsTypeOf(SGEBModel.Sheet)">
+        <MappingFragment StoreEntitySet="Sheets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DriverRg" TypeName="SGEBModel.DriverRg" StoreEntitySet="Drivers">
+      <EndProperty Name="Rg">
+        <ScalarProperty Name="Id" ColumnName="Rg_Id" />
+      </EndProperty>
+      <EndProperty Name="Driver">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DriverCpf" TypeName="SGEBModel.DriverCpf" StoreEntitySet="Drivers">
+      <EndProperty Name="Cpf">
+        <ScalarProperty Name="Id" ColumnName="Cpf_Id" />
+      </EndProperty>
+      <EndProperty Name="Driver">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DriverCnh" TypeName="SGEBModel.DriverCnh" StoreEntitySet="Drivers">
+      <EndProperty Name="Cnh">
+        <ScalarProperty Name="Id" ColumnName="Cnh_Id" />
+      </EndProperty>
+      <EndProperty Name="Driver">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DriverAddress" TypeName="SGEBModel.DriverAddress" StoreEntitySet="Drivers">
+      <EndProperty Name="Address">
+        <ScalarProperty Name="Id" ColumnName="Address_Id" />
+      </EndProperty>
+      <EndProperty Name="Driver">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DriverContact" TypeName="SGEBModel.DriverContact" StoreEntitySet="Drivers">
+      <EndProperty Name="Contact">
+        <ScalarProperty Name="Id" ColumnName="Contact_Id" />
+      </EndProperty>
+      <EndProperty Name="Driver">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VehicleVehicle" TypeName="SGEBModel.VehicleVehicle" StoreEntitySet="Vehicles">
+      <EndProperty Name="Vehicle">
+        <ScalarProperty Name="Id" ColumnName="VehicleVehicle_Vehicle1_Id" />
+      </EndProperty>
+      <EndProperty Name="Vehicle1">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="VehicleVehicle_Vehicle1_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OwnerAddress" TypeName="SGEBModel.OwnerAddress" StoreEntitySet="Owners">
+      <EndProperty Name="Address">
+        <ScalarProperty Name="Id" ColumnName="Address_Id" />
+      </EndProperty>
+      <EndProperty Name="Owner">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VehicleOwner" TypeName="SGEBModel.VehicleOwner" StoreEntitySet="Vehicles">
+      <EndProperty Name="Owner">
+        <ScalarProperty Name="Id" ColumnName="Owner_Id" />
+      </EndProperty>
+      <EndProperty Name="Vehicle">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DriverSheet" TypeName="SGEBModel.DriverSheet" StoreEntitySet="Sheets">
+      <EndProperty Name="Driver">
+        <ScalarProperty Name="Id" ColumnName="Driver_Id" />
+      </EndProperty>
+      <EndProperty Name="Sheet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SheetVehicle" TypeName="SGEBModel.SheetVehicle" StoreEntitySet="Sheets">
+      <EndProperty Name="Vehicle">
+        <ScalarProperty Name="Id" ColumnName="Truck_Id" />
+      </EndProperty>
+      <EndProperty Name="Sheet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SheetCart" TypeName="SGEBModel.SheetCart" StoreEntitySet="Sheets">
+      <EndProperty Name="Vehicle">
+        <ScalarProperty Name="Id" ColumnName="Cart_Id" />
+      </EndProperty>
+      <EndProperty Name="Sheet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

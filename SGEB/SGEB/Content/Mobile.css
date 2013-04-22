@@ -1,0 +1,436 @@
+﻿
+body {
+    font-family: Helvetica Arial;
+    padding: 0;
+    margin: 0;
+}
+
+#b3Logo {
+    display: none;
+}
+
+.button {
+    height: 25px;
+    width: 100px;
+}
+
+.errormessage {
+    text-align: center;
+}
+
+
+input[type="text"], input[type="email"], input[type="date"] {
+    margin: 0;
+    height: 20px;
+}
+
+select {
+    margin: 0;
+    height: 26px;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+.actions {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+table {
+    margin-top: 3px;
+    padding-top: 0;
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+    line-height: 1.5em;
+    font-size: smaller;
+}
+
+    table thead tr {
+        background-color: #F2F2F2;
+    }
+
+    table td,
+    table th {
+        border-bottom: 1px dotted #000;
+    }
+
+    table tfoot td {
+        border-bottom: none;
+    }
+
+/*********************************** ACCOUNT STYLES ***********************************/
+DIV#login {
+    margin: 0 auto;
+}
+
+    DIV#login > form {
+        height: 100%;
+        background-color: #FFF;
+    }
+
+        DIV#login > form > h3 {
+            font-size: 16pt;
+            margin-left: 5%;
+        }
+
+        DIV#login > form > p {
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+
+        DIV#login > form > p > input[type="text"], input[type="password"] {
+            padding-left: 40px;
+            height: 37px;
+            width: 100%;
+            font-size: large;
+            vertical-align: middle;
+            background-repeat: no-repeat;
+            background-position: left center;
+        }
+
+        DIV#login > form > p > .usernameInput {
+            background-image: url("Images/username.png");
+        }
+
+        DIV#login > form > p > .passwordInput {
+            background-image: url("Images/password.png");
+        }
+
+            DIV#login > form > p > .loginButton {
+                width: 15%;
+                height: 30px;
+                font-size: larger;
+                font-weight: bold;
+                float: right;
+                color: #FFF;
+                background-color: #4b83c4;
+                border-top-color: #989997;
+                border-left-color: #989997;
+            }
+/*********************************** ACCOUNT STYLES ***********************************/
+
+/*********************************** MENU STYLES ***********************************/
+#menu,
+#menu ul,
+#menu li,
+#menu a {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    border: none;
+}
+
+#menu {
+    color: #FFF;
+    height: 23px;
+    width: 99.7%;
+    background-color: #4b83c4;
+    border: 2px solid #e3e3e3;
+    overflow: hidden;
+}
+
+    #menu li {
+        position: relative;
+        height: 23px;
+        float: left;
+        display: block;
+        list-style: none;
+    }
+
+    #menu ul li {
+        width: 16.6%;
+    }
+
+    #menu a {
+        color: inherit;
+        display: block;
+        padding: 0 14px;
+        margin: 3px 0;
+        text-decoration: none;
+    }
+
+    #menu li:hover {
+        background: #f2f2f2;
+        color: #000;
+    }
+
+/*********************************** MENU STYLES ***********************************/
+
+/*********************************** CONFIGURATIONS STYLES ***********************************/
+DIV#configurations {
+    margin: 10px;
+    font-size: smaller;
+}
+
+    DIV#configurations fieldset {
+        background-color: #f2f2f2;
+    }
+
+        DIV#configurations fieldset legend {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        DIV#configurations fieldset p input[type="text"], input[type="email"] {
+            margin: 0;
+            height: 20px;
+            width: 100%;
+        }
+        /*
+        DIV#configurations fieldset p input[type="text"], input[type="email"] {
+            width: 100%;
+        } 
+        */
+
+.configActions {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+/*********************************** CONFIGURATIONS STYLES ***********************************/
+
+/*********************************** DRIVERS STYLES ***********************************/
+DIV#drivers {
+    margin: 10px;
+}
+/*********************************** DRIVERS STYLES ***********************************/
+
+/*********************************** ADD EDIT DRIVERS STYLES ***********************************/
+DIV.AddEdit {
+    margin: 10px;
+    font-size: smaller;
+}
+
+    DIV.AddEdit fieldset {
+        background-color: #F2F2F2;
+    }
+
+        DIV.AddEdit fieldset legend {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        DIV.AddEdit fieldset DIV h4 {
+            margin-bottom: 0;
+        }
+
+        DIV.AddEdit fieldset DIV hr {
+            margin-top: 0;
+        }
+
+        DIV.AddEdit fieldset DIV p span label {
+            float: left;
+            width: 150px;
+            margin-top: 3px;
+        }
+
+        DIV.AddEdit fieldset DIV p span input[type="text"] {
+            width: 60%;
+            margin-right: 10px;
+        }
+
+        DIV.AddEdit fieldset DIV p span input[type="date"],
+        DIV.AddEdit fieldset DIV p span select {
+            width: 22.9%;
+            margin-right: 10px;
+        }
+
+        DIV.AddEdit fieldset DIV p span text {
+            display: none;
+        }
+
+        DIV.AddEdit fieldset DIV p a {
+            color: Blue;
+        }
+
+
+/*********************************** ADD EDIT DRIVERS STYLES ***********************************/
+
+/*********************************** VIEW DRIVER STYLES ***********************************/
+DIV#ViewDriver {
+    margin: 10px 20px;
+    background-color: #F2F2F2;
+    padding-bottom: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 5.583333492279053px;
+    border: 1px solid #9c9c9c;
+    font-size: smaller;
+}
+
+    DIV#ViewDriver fieldset {
+        border-radius: 4px;
+    }
+
+        DIV#ViewDriver fieldset legend {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+    DIV#ViewDriver h4 {
+        margin-bottom: 0;
+    }
+
+    DIV#ViewDriver hr {
+        margin-top: 0;
+    }
+
+    DIV#ViewDriver p {
+        height: 25px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+        DIV#ViewDriver p span {
+            width: 50%;
+            text-align: center;
+        }
+
+            DIV#ViewDriver p span label {
+                width: 150px;
+                float: left;
+                text-align: left;
+            }
+
+DIV#ViewDriverRg fieldset {
+    height: 262px;
+}
+
+DIV#ViewDriverContact fieldset {
+    height: 172px;
+}
+
+/*********************************** VIEW DRIVER STYLES ***********************************/
+
+/*********************************** VEHICLES STYLES ***********************************/
+DIV#vehicles {
+    margin: 10px;
+}
+
+DIV#SelectVehicleType {
+    width: 430px;
+    margin: 0 auto;
+}
+
+    DIV#SelectVehicleType fieldset {
+        background-color: #F2F2F2;
+    }
+
+        DIV#SelectVehicleType fieldset legend {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+#SelectVehicleType select {
+    width: 73%;
+}
+
+DIV#ViewVehicle {
+    margin: 10px;
+    background-color: #F2F2F2;
+    padding-bottom: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 5.583333492279053px;
+    border: 1px solid #9c9c9c;
+    font-size: smaller;
+}
+
+    DIV#ViewVehicle fieldset {
+        border-radius: 4px;
+    }
+
+        DIV#ViewVehicle fieldset legend {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+    DIV#ViewVehicle h4 {
+        margin-bottom: 0;
+    }
+
+    DIV#ViewVehicle hr {
+        margin-top: 0;
+    }
+
+    DIV#ViewVehicle p {
+        height: 23px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+        DIV#ViewVehicle p span label {
+            width: 150px;
+            float: left;
+            text-align: left;
+        }
+
+    DIV#ViewVehicle .Owner fieldset {
+        height: 100%;
+    }
+/*********************************** VEHICLES STYLES ***********************************/
+
+/*********************************** SHEET STYLES ***********************************/
+DIV#sheets {
+    margin: 10px;
+}
+
+DIV#AddSheet {
+    margin: 0 auto;
+    width: 450px;
+}
+
+    DIV#AddSheet fieldset {
+        background-color: #f2f2f2;
+    }
+
+        DIV#AddSheet fieldset legend {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+    DIV#AddSheet p span label {
+        width: 100px;
+        text-align: left;
+    }
+
+    DIV#AddSheet p span select {
+        width: 80%;
+        text-align: left;
+        float: right;
+    }
+
+.sheetActions {
+    text-align: center;
+    margin-bottom: 0;
+}
+/*********************************** SHEET STYLES ***********************************/
+
+/*********************************** SEND MAIL STYLES ***********************************/
+
+DIV#SendRecord {
+    width: 500px;
+    margin: 0 auto;
+}
+
+    DIV#SendRecord fieldset {
+        background-color: #F2F2F2;
+    }
+
+        DIV#SendRecord fieldset legend {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+    DIV#Sendrecord #email {
+        width: 77%;
+        height: 25px;
+        margin-top: 10px;
+    }
+/*********************************** SEND MAIL STYLES ***********************************/
+

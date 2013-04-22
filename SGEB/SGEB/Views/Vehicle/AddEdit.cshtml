@@ -1,0 +1,261 @@
+﻿@model SGEB.Model.Vehicle
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="ui-state-error errormessage">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<div class="AddEdit">
+    @using (Html.BeginForm("Save", "Vehicle", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <fieldset>
+            <legend>@((Model.Id == 0) ? "Adicionar" : "Editar") @Model.Type</legend>
+
+            <div>
+                <h4>Informações @((Model.Type.Equals("Caminhão") || Model.Type.Equals("Bi-Trem")) ? "do" : "da") @Model.Type @((Model.Type.Equals("Bi-Trem")) ? "- Carreta 1" : "")</h4>
+                <hr />
+
+                <p>
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <input type="hidden" name="Type" value="@Model.Type" />
+                </p>
+
+                <p>
+                    <span><label for="Plate">Placa:</label> <input type="text" name="Plate" value="@Model.Plate" required maxlength="7" /><text>Ex: AAA0000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Renavam">Renavam:</label> <input type="text" name="Renavam" value="@Model.Renavam" required maxlength="11" /><text>Sómente números. Ex: 00000000000</text></span>
+                </p>
+                
+                <p>
+                    <span><label for="Model">Modelo:</label> <input type="text" name="Model" value="@Model.Model" required maxlength="50" /><text>Ex: Volvo FH 440</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Chassi">Chassi:</label> <input type="text" name="Chassi" value="@Model.Chassi" required maxlength="20" /><text>Ex: 9BWZZZ377VT004251</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Color">Cor:</label> <input type="text" name="Color" value="@Model.Color" required maxlength="20" /><text>Ex: Amarelo</text></span>
+                </p>
+
+                <p>
+                    <span>
+                    <label for="Year">Ano:</label>
+                    <select name="Year">
+                        @for (int x = DateTime.Now.Year + 1; x >= 1950; x--)
+                        {
+                            <option value="@x" @(x == Model.Year ? "selected" : "")>@x</option>
+                        }
+                    </select>
+                    </span>
+                </p>
+
+                <p>
+                    <span><label for="City">Cidade:</label> <input type="text" name="City" value="@Model.City" required maxlength="30" /><text>Ex: São Paulo</text></span>
+                </p>
+
+                <p>
+                    <span><label for="State">Estado:</label> <input type="text" name="State" value="@Model.State" required maxlength="2" /><text>Ex: SP</text></span>
+                </p>
+
+                <p>
+                    <span><label for="ANTT">ANTT:</label> <input type="text" name="ANTT" value="@Model.ANTT" required maxlength="20" /><text>Sómente números. Ex: 00000000000</text></span>
+                </p>
+
+                <p>
+                    @if (String.IsNullOrWhiteSpace(Model.Image))
+                    {
+                        <input type="hidden" name="Image" value=" " />
+                    }
+                    else
+                    {
+                        <input type="hidden" name="Image" value=@Model.Image />
+                    }
+                    <span>
+                        <label for="Images">Imagem: </label>
+                        <input type="file" name="Images" accept="image/jpeg" /> 
+                        
+                        @if (!String.IsNullOrWhiteSpace(Model.Image))
+                        {
+                            <a href="@Model.Image" target="_blank">Imagem atual</a>
+                        }
+                    </span>
+                </p>
+            </div>
+
+            <div>
+                <h4>Informações do Proprietário @((Model.Type.Equals("Bi-Trem")) ? "- Carreta 1" : "")</h4>
+                <hr />
+
+                <p>
+                    <span><label for="Owner.Name">Nome:</label> <input type="text" name="Owner.Name" value="@Model.Owner.Name" required maxlength="50" /><text>Ex: MinhaEmpresa Ltda</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Owner.DocNumber">Cpf/Cnpj:</label> <input type="text" name="Owner.DocNumber" value="@Model.Owner.DocNumber" required maxlength="20" /><text>Sómente números. Ex: 00000000000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Owner.Address.Street">Rua/Avenida:</label> <input type="text" name="Owner.Address.Street" value="@Model.Owner.Address.Street" required maxlength="50" /><text>Ex: Avenida São Paulo</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Owner.Address.Number">Número:</label> <input type="text" name="Owner.Address.Number" value="@Model.Owner.Address.Number" required maxlength="4" /><text>Ex: 0000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Owner.Address.Neighborhood">Bairro:</label> <input type="text" name="Owner.Address.Neighborhood" value="@Model.Owner.Address.Neighborhood" required maxlength="50" /><text>Ex: Vila Maria</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Owner.Address.ZipCode">CEP:</label> <input type="text" name="Owner.Address.ZipCode" value="@Model.Owner.Address.ZipCode" required maxlength="8" /><text>Sómente números. Ex: 00000000</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Owner.Address.City">Cidade:</label> <input type="text" name="Owner.Address.City" value="@Model.Owner.Address.City" required maxlength="30" /><text>Ex: São Paulo</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Owner.Address.State">Estado:</label> <input type="text" name="Owner.Address.State" value="@Model.Owner.Address.State" required maxlength="2" /><text>Ex: SP</text></span>
+                </p>
+
+                <p>
+                    <span><label for="Onwer.Phone">Telefone:</label> <input type="text" name="Owner.Phone" value="@Model.Owner.Phone" required maxlength="11" /><text>Sómente números. Ex: 00000000000</text></span>
+                </p>
+            </div>
+
+            @if (Model.Type.Equals("Bi-Trem"))
+            {
+                <div>
+                    <h4>Informações do Bi-Trem - Carreta 2</h4>
+                    <hr />
+
+                    <p>
+                        <input type="hidden" name="SecondaryVehicle.Id" value="@Model.SecondaryVehicle.Id" />
+                        <input type="hidden" name="SecondaryVehicle.Type" value="Secondary" />
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Plate">Placa:</label> <input type="text" name="SecondaryVehicle.Plate" value="@Model.SecondaryVehicle.Plate" required maxlength="7" /><text>Ex: AAA0000</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Renavam">Renavam:</label> <input type="text" name="SecondaryVehicle.Renavam" value="@Model.SecondaryVehicle.Renavam" required maxlength="11" /><text>Sómente números. Ex: 00000000000</text></span>
+                    </p>
+                
+                    <p>
+                        <span><label for="SecondaryVehicle.Model">Modelo:</label> <input type="text" name="SecondaryVehicle.Model" value="@Model.SecondaryVehicle.Model" required maxlength="50" /><text>Ex: Volvo FH 440</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Chassi">Chassi:</label> <input type="text" name="SecondaryVehicle.Chassi" value="@Model.SecondaryVehicle.Chassi" required maxlength="20" /><text>Ex: 9BWZZZ377VT004251</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Color">Cor:</label> <input type="text" name="SecondaryVehicle.Color" value="@Model.SecondaryVehicle.Color" required maxlength="20" /><text>Ex: Amarelo</text></span>
+                    </p>
+
+                    <p>
+                        <span>
+                        <label for="SecondaryVehicle.Year">Ano:</label>
+                        <select name="SecondaryVehicle.Year">
+                            @for (int x = DateTime.Now.Year + 1; x >= 1950; x--)
+                            {
+                                <option value="@x" @(x == Model.SecondaryVehicle.Year ? "selected" : "")>@x</option>
+                            }
+                        </select>
+                        </span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.City">Cidade:</label> <input type="text" name="SecondaryVehicle.City" value="@Model.SecondaryVehicle.City" required maxlength="50" /><text>Ex: São Paulo</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.State">Estado:</label> <input type="text" name="SecondaryVehicle.State" value="@Model.SecondaryVehicle.State" required maxlength="2" /><text>Ex: SP</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.ANTT">ANTT:</label> <input type="text" name="SecondaryVehicle.ANTT" value="@Model.SecondaryVehicle.ANTT" required maxlength="20" /><text>Sómente números. Ex: 00000000000</text></span>
+                    </p>
+
+                    <p>
+                        @if (String.IsNullOrWhiteSpace(Model.SecondaryVehicle.Image))
+                        {
+                            <input type="hidden" name="Image" value=" " />
+                        }
+                        else
+                        {
+                            <input type="hidden" name="Image" value=@Model.SecondaryVehicle.Image />
+                        }
+                        <span>
+                            <label for="Images">Imagem: </label>
+                            <input type="file" name="Images" accept="image/jpeg" /> 
+                        
+                            @if (!String.IsNullOrWhiteSpace(@Model.SecondaryVehicle.Image))
+                            {
+                                <a href="@Model.SecondaryVehicle.Image" target="_blank">Imagem atual</a>
+                            }
+                        </span>
+                    </p>
+                </div>
+                
+                <div>
+                    <h4>Informações do Proprietário - Carreta 2</h4>
+                    <hr />
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Owner.Name">Nome:</label> <input type="text" name="SecondaryVehicle.Owner.Name" value="@Model.SecondaryVehicle.Owner.Name" required maxlength="50" /><text>Ex: MinhaEmpresa Ltda</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Owner.DocNumber">Cpf/Cnpj:</label> <input type="text" name="SecondaryVehicle.Owner.DocNumber" value="@Model.SecondaryVehicle.Owner.DocNumber" required maxlength="20" /><text>Sómente números. Ex: 00000000000</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Owner.Address.Street">Rua/Avenida:</label> <input type="text" name="SecondaryVehicle.Owner.Address.Street" value="@Model.SecondaryVehicle.Owner.Address.Street" required maxlength="50" /><text>Ex: Avenida São Paulo</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Owner.Address.Number">Número:</label> <input type="text" name="SecondaryVehicle.Owner.Address.Number" value="@Model.SecondaryVehicle.Owner.Address.Number" required maxlength="4" /><text>Ex: 0000</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Owner.Address.Neighborhood">Bairro:</label> <input type="text" name="SecondaryVehicle.Owner.Address.Neighborhood" value="@Model.SecondaryVehicle.Owner.Address.Neighborhood" required maxlength="50" /><text>Ex: Vila Maria</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Owner.Address.ZipCode">CEP:</label> <input type="text" name="SecondaryVehicle.Owner.Address.ZipCode" value="@Model.SecondaryVehicle.Owner.Address.ZipCode" required maxlength="8" /><text>Sómente números. Ex: 00000000</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Owner.Address.City">Cidade:</label> <input type="text" name="SecondaryVehicle.Owner.Address.City" value="@Model.SecondaryVehicle.Owner.Address.City" required maxlength="30" /><text>Ex: São Paulo</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Owner.Address.State">Estado:</label> <input type="text" name="SecondaryVehicle.Owner.Address.State" value="@Model.SecondaryVehicle.Owner.Address.State" required maxlength="2" /><text>Ex: SP</text></span>
+                    </p>
+
+                    <p>
+                        <span><label for="SecondaryVehicle.Onwer.Phone">Telefone:</label> <input type="text" name="SecondaryVehicle.Owner.Phone" value="@Model.SecondaryVehicle.Owner.Phone" required maxlength="11" /><text>Sómente números. Ex: 00000000000</text></span>
+                    </p>
+                </div>
+            }
+            
+            
+
+            <div class="actions">
+                <input type="submit" value="Salvar" class="button"/>
+                <input type="button" value="Cancelar" class="button" onclick="window.location.href='@Url.Action("Vehicles", "Vehicle")'" />
+            </div>
+        </fieldset>
+    }
+</div>

@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="SelectVehicleType">
+    @using (Html.BeginForm("SelectType", "Vehicle", FormMethod.Post))
+    {
+        <fieldset>
+            <legend>Selecione o tipo de veiculo</legend>
+            
+            <select name="Type">
+                <option value="Caminhão">Caminhão</option>
+                <option value="Carreta">Carreta</option>
+                <option value="Bi-Trem">Bi-Trem</option>
+            </select>
+
+            <input type="submit" value="Ok" class="button"/>
+        </fieldset>
+    }
+</div>

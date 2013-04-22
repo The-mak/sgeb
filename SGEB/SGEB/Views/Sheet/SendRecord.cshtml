@@ -1,0 +1,31 @@
+﻿@model int
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="SendRecord">
+    <fieldset>
+        <legend>Enviar e-mail:</legend>
+
+        @using (Html.BeginForm("SendRecord", "Sheet", FormMethod.Post, new { id = "sendRecordForm" }))
+        {
+            <input type="hidden" value="@Model" id="id" />
+            <input type="email" name="email" id="email" />
+            <input type="submit" class="button" value="enviar" id="sendMailButton" />
+        }
+    </fieldset>
+</div>
+
+<script type="text/javascript">
+    $("#sendMailButton").click(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: "/Sheet/SendMail",
+            data: { id: document.getElementById("id").value, email: document.getElementById("email").value }
+        });
+
+        $("#sendRecordForm").submit();
+});
+</script>
