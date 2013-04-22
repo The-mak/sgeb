@@ -15,3 +15,4 @@ O sistema é dividido em 3 partes:
     especificado, assim a geração do arquivo se da 'on-fly'
 
 As configurações podem ser alteradas na página "Configurações", tendo-se controle sobre os dados da empresa.
+ 
